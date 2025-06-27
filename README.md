@@ -31,15 +31,19 @@ bash <(wget -qO- https://raw.githubusercontent.com/zakehowell/succinct/main/setu
 
 运行 calibrate 自动校准节点性能
 
-提示填写：
+```bash
 
-PRIVATE_KEY
+#提示填写：
 
-PGUS_PER_SECOND
+PRIVATE_KEY      # 签名地址的私钥
 
-PROVE_PER_BPGU
+PROVER_ADDRESS   # 注册的验证者地址
 
-PROVER_ADDRESS
+PGUS_PER_SECOND  # 预期吞吐量，对证明器每秒证明吞吐量（以 PGU 为单位）的估计值
+
+PROVE_PER_BPGU   # 投标价格，证明者竞标的每单位证明气体 (PGU) 的价格
+
+```
 
 自动生成 .env 和 docker-compose.yml
 
