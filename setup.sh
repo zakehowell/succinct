@@ -110,6 +110,7 @@ export PRIVATE_KEY=$PRIVATE_KEY
 export PGUS_PER_SECOND=$PGUS_PER_SECOND
 export PROVE_PER_BPGU=$PROVE_PER_BPGU
 export PROVER_ADDRESS=$PROVER_ADDRESS
+export RPC_URL=https://rpc-production.succinct.xyz
 EOF
 
 cat <<EOF > docker-compose.yml
@@ -125,6 +126,7 @@ services:
       - PGUS_PER_SECOND=\${PGUS_PER_SECOND}
       - PROVE_PER_BPGU=\${PROVE_PER_BPGU}
       - PROVER_ADDRESS=\${PROVER_ADDRESS}
+      - RPC_URL=\${RPC_URL}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     deploy:
@@ -134,6 +136,7 @@ services:
             - capabilities: [gpu]
     command: >
       prove
+      --rpc-url \${RPC_URL}
       --throughput \${PGUS_PER_SECOND}
       --bid \${PROVE_PER_BPGU}
       --private-key \${PRIVATE_KEY}
