@@ -121,7 +121,7 @@ services:
     restart: always
     network_mode: host
     environment:
-      - NETWORK_PRIVATE_KEY=\${PRIVATE_KEY}
+      - PRIVATE_KEY=\${PRIVATE_KEY}
       - PGUS_PER_SECOND=\${PGUS_PER_SECOND}
       - PROVE_PER_BPGU=\${PROVE_PER_BPGU}
       - PROVER_ADDRESS=\${PROVER_ADDRESS}
@@ -132,8 +132,14 @@ services:
         reservations:
           devices:
             - capabilities: [gpu]
-    command: prove
+    command: >
+      prove
+      --throughput \${PGUS_PER_SECOND}
+      --bid \${PROVE_PER_BPGU}
+      --private-key \${PRIVATE_KEY}
+      --prover \${PROVER_ADDRESS}
 EOF
+
 
 print_message "\xf0\x9f\x9a\x80 启动 Prover 节点..."
 docker compose up -d
