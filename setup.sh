@@ -110,7 +110,7 @@ export PRIVATE_KEY=$PRIVATE_KEY
 export PGUS_PER_SECOND=$PGUS_PER_SECOND
 export PROVE_PER_BPGU=$PROVE_PER_BPGU
 export PROVER_ADDRESS=$PROVER_ADDRESS
-export RPC_URL=https://rpc-production.succinct.xyz
+export RPC_URL=https://rpc.sepolia.succinct.xyz
 EOF
 
 cat <<EOF > docker-compose.yml
