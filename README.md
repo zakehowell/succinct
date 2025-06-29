@@ -15,7 +15,7 @@
 apt update && apt install -y wget
 
 # 一键启动
-bash <(wget -qO- https://raw.githubusercontent.com/zakehowell/succinct/main/setup.sh)
+bash <(wget -qO- https://raw.githubusercontent.com/zakehowell/succinct/main/setup-prove.sh)
 ```
 
 ## ✅ 部署自动执行以下操作：
